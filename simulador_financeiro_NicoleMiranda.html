@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Fincanceiro</title>
+</head>
+<body>
+    <h1>Simulador Fincaneiro</h1>
+    <label>Valor Lote</label> 
+    <input type="number" id="valor_lote">
+    <label>Quantidade Lote</label> 
+    <input type="number" id="qtd_lote">
+    <br>
+    <br>
+    <label>Temperatura em °C</label>
+    <input type="Number" id="temperatura">
+    <br>
+    <br>
+    <button onclick="calcular()">Calcular</button>
+    <br>
+    <div id="ipt_calculo"></div>
+</body>
+<script>
+    function calcular(){
+        let lote = Number(valor_lote.value)
+        let quantidade = Number(qtd_lote.value)
+        let total = lote * quantidade
+        let temp = Number(temperatura.value)
+
+        if(temp>4){
+        
+            ipt_calculo.innerHTML= ` Temperatura NÂO ideal para conservação do produto!! <br>
+            Vocẽ perdeu um total de R$${total} reais do seu lucro!` 
+        } else if (temp<=4){
+
+            ipt_calculo.innerHTML = `Temperatura IDEAL! Vocẽ salvou R$${total} reais` 
+        }
+        
+    }
+</script>
+</html>

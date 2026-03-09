@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <style>
+        body {
+            background: #cfd9ff;
+            text-align: center;
+        }
+
+        h3 {
+            background-color: #365EFF;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        h4 {
+            color: #333;
+        }
+        p {
+            color: #FF4144;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background-color: #365EFF;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        #idResultado {
+            font-size: 16px;
+            color: #222;
+            font-weight: bold;
+        
+        }
+    </style>
+</head>
+<body>
+    <h3>Simulador Financeiro !</h3>
+    <h4>Digite o preço do lote</h4>
+    <input type="text" id="idPreco" placeholder="Digite apenas números"><br>
+
+    <h4>Digite quantos lotes estão sendo transportados</h4>
+    <input type="number" id="idLote" placeholder="Quantidade de lotes"><br><br>
+
+    <h4>Digite quantos graus Celsius está o seu transporte</h4>
+    <input type="text" id="idGraus" placeholder="C°"><br><br>
+
+    <button onclick="calcular()">Calcular</button><br>
+    <h5 id="idResultado"></h5>
+
+    <script>
+        function calcular(){
+            let kilos = Number(idLote.value);
+            let preco = Number(idPreco.value);
+            let graus = Number(idGraus.value);
+
+            let perda = preco * kilos;
+            if(graus <= 4){
+                idResultado.innerHTML = `
+                    🌡️ Temperatura atual: ${graus} C° <br>
+                    ✅ Ideal para o refrigeramento <br>
+                    Possível perda caso saia do padrão: R$ <p> ${perda.toFixed(2)} </p>`;
+            } else {
+                idResultado.innerHTML = `
+                    🌡️ Temperatura atual: ${graus} C° <br>
+                    ⚠️ <p>Não está apropriada para o refrigeramento</p> <br>
+                    Possível perda caso saia do padrão: R$<p>${perda.toFixed(2)} </p>`;
+            }
+        }
+    </script>
+</body>
+</html>

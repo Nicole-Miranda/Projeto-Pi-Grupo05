@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro de PI</title>
+</head>
+<body>
+    <h4>Digite o preço do kilo da carne</h4>
+    <input type="text" id="idPreco" placeholder="Preço do Kg"><br>
+    <h4>Digite quantos kilos de carne estão sendo transportados</h4>
+    <input type="text" id="idLote" placeholder="Kg de carne"><br><br>
+    <h4>Digite quantos graus Celsius está o seu transporte</h4>
+    <input type="text" id="idGraus" placeholder="C°"><br><br>
+
+
+    <button onclick="calcular()" style="background-color: darksalmon;">Calcular</button><br>
+
+    <h5 id="idResultado"></h5>
+ 
+</body>
+<script>
+    function calcular(){
+        let kilos = Number(idLote.value);
+        let preco = Number(idPreco.value);
+        let graus = Number(idGraus.value);
+        
+        if(graus <= 4){
+            let perda = preco * kilos;
+            idResultado.innerHTML = `A temperatura atual é de ${graus} C° <br>
+            A temperatura atual está ideal para o refrigeramento<br> 
+            Caso a temperatura do lote esteja fora do padrão você pode perder R$ + ${perda.toFixed(2)}`
+        } else{
+            let perda = preco * kilos;
+            idResultado.innerHTML = `A temperatura atual é de ${graus} C° <br>
+            A temperatura atual não está apropriada para o refrigeramento<br> 
+            Caso a temperatura do lote esteja fora do padrão você pode perder R$ + ${perda.toFixed(2)}`
+        }
+        
+
+        
+    }
+</script>
+</html>
